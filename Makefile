@@ -2,19 +2,26 @@ NAME = so_long
 
 SRC =	so_long.c    \
 		parsing.c    \
-		utils.c      
+		utils.c      \
+		parsing2.c   \
+		drawing.c    
    
 OBJS = $(SRC:.c=.o)
 
+%.o: %.c
+	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+
 CC = cc
 
-CFLAGS = -g  -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -g3 -Wall -Werror -Wextra -fsanitize=address
 
 all:$(NAME)
 
 $(NAME):$(OBJS)
 	@make -C ./libft
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) ./libft/libft.a -o $(NAME)
+	@make -C ./mlx
+	# $(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) ./libft/libft.a  ./mlx/libmlx.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
