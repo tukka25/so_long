@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:50:51 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/04 18:24:50 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:41:25 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	check_map(char *av[], t_map *m, t_counter *c)
 	check_the_edges(m);
 	check_rectangular(m);
 	check_map_contents(m, c);
-	valid_path(m, c);
+	// valid_path(m, c);
 }
 
 void	lines_counter(t_map *m, int fd)

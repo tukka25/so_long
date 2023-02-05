@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:19:46 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/04 18:28:35 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:51:31 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,28 @@ void	check_map_contents(t_map *m, t_counter *c)
 		}
 		m->i++;
 	}
-	if (c->player > 1 || c->exit > 1 || c->collectibles == 0)
+	if (c->player != 1 || c->exit != 1 || c->collectibles == 0)
 		free_and_exit(m);
 }
 
-void	valid_path(t_map *m, t_counter *c)
+void	player_index(t_map *m)
 {
-	ft_printf("m = %d\n", m->height);
-	ft_printf("c = %d\n", c->collectibles);
-	ft_printf("e = %d\n", c->exit);
-	ft_printf("p = %d\n", c->player);
+	m->i = 0;
+	m->j = 0;
+	m->p_index = 0;
+	while (m->map[m->i])
+	{
+		m->j = 0;
+		while (m->map[m->i][m->j])
+		{
+			if (m->map[m->i][m->j] == 'P')
+				break ;
+			m->j++;
+			m->p_index++;
+		}
+		if (m->j != m->width)
+			break ;
+		printf("i = %d", m->p_index);
+		m->i++;
+	}
 }

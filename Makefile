@@ -4,12 +4,13 @@ SRC =	so_long.c    \
 		parsing.c    \
 		utils.c      \
 		parsing2.c   \
-		drawing.c    
+		drawing.c    \
+		hooks.c       
    
 OBJS = $(SRC:.c=.o)
 
-%.o: %.c
-	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+# %.o: %.c
+# 	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 
 CC = cc
 
