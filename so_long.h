@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/05 23:06:18 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/06 21:13:23 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ typedef struct s_mlx
 	void	*mlx_win;
 	void	*mlx_img;
 	char	*background;
+	char	*p_photo;
+	char	*c_photo;
+	char	*exit_photo;
 	char	*walls;
 }	t_mlx;
 
@@ -57,7 +60,15 @@ typedef struct s_counter
 	int		exit;
 }	t_counter;
 
-void		check_map(char *av[], t_map *m, t_counter *c);
+typedef struct s_so_long
+{
+	t_counter	counter;
+	t_img		img;
+	t_mlx		mlx;
+	t_map		map;
+}	t_sl;
+
+void		check_map(char *av[], t_sl *s);
 void		lines_counter(t_map *m, int fd);
 void		insert_map(t_map *m, char *av[]);
 int			cut_nl(char *str);
@@ -68,14 +79,17 @@ void		check_the_edges(t_map *m);
 void		check_rectangular(t_map *m);
 void		check_map_contents(t_map *m, t_counter *c);
 void		valid_path(t_map *m, t_counter *c);
-void		put_background(t_map *m, t_mlx *mlx, t_img *img);
-void		put_player(t_map *m, t_mlx *mlx, t_img *img, char ch);
-void		put_collectibles(t_map *m, t_mlx *mlx, t_img *img, char ch);
-void		put_exit(t_map *m, t_mlx *mlx, t_img *img, char ch);
-void		put_walls(t_map *m, t_mlx *mlx, t_img *img, char ch);
-int			key_hook(int keycode, t_mlx *mlx, t_map *m, t_img *img);
+void		put_background(t_sl *s);
+void		put_player(t_sl *s, char ch);
+void		put_collectibles(t_sl *s, char ch);
+void		put_exit(t_sl *s, char ch);
+void		put_walls(t_sl *s, char ch);
+int			key_hook(int keycode, t_sl *s);
 void		player_index(t_map *m);
-void		print_map(t_map *m, t_mlx *mlx, t_img *img);
-void		move_player(t_map *m);
+void		print_map(t_sl *s);
+void		move_player(t_sl *s);
 void		pp(t_map *m, t_mlx *mlx, t_img *img);
+void		move_back(t_sl *s);
+void		move_up(t_sl *s);
+void		move_down(t_sl *s);
 #endif

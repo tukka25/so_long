@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:07 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/05 23:07:14 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:52:49 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,45 +15,42 @@
 int	main(int ac, char *av[])
 {
 	int			i;
-	t_map		m;
-	t_mlx		mlx;
-	t_counter	c;
-	t_img		img;
+	t_sl		s;
 	char		**str;
 
 	i = 0;
 	str = NULL;
-	// mlx.background = "./photos/image.xpm";
-	mlx.walls = "./photos/ground.xpm";
+	s.mlx.background = "./photos/ground.xpm";
+	s.mlx.c_photo = "./photos/coins.xpm";
+	s.mlx.exit_photo = "./photos/black-hole-2.xpm";
+	s.mlx.p_photo = "./photos/tt.xpm";
+	s.mlx.walls = "./photos/out.xpm";
 	if (ac == 2)
 	{
-		check_map(av, &m, &c);
-		mlx.mlx = mlx_init();
-		mlx.mlx_win = mlx_new_window(mlx.mlx, m.width * 64, m.height * 64, "so_long");
-		mlx_key_hook(mlx.mlx_win, key_hook, &mlx);
-		print_map(&m, &mlx, &img);
+		check_map(av, &s);
+		s.mlx.mlx = mlx_init();
+		s.mlx.mlx_win = mlx_new_window(s.mlx.mlx, s.map.width * 64, s.map.height * 64, "so_long");
+		mlx_key_hook(s.mlx.mlx_win, key_hook, &s);
+		print_map(&s);
+		// print_map(&m, &mlx, &img);
 		// player_index(&m);
 		// printf("p_index = %d\n", m.p_index);
 		// exit(0);
+		mlx_loop(s.mlx.mlx);
 	}
 	exit(0);
 }
 
-void	print_map(t_map *m, t_mlx *mlx, t_img *img)
+void	print_map(t_sl *s)
 {
-	put_background(m, mlx, img);
-	put_player(m, mlx, img, 'P');
-	put_collectibles(m, mlx, img, 'C');
-	put_exit(m, mlx, img, 'E');
-	put_walls(m, mlx, img, '1');
-	mlx_loop(mlx->mlx);
+	put_background(s);
+	put_player(s, 'P');
+	put_collectibles(s, 'C');
+	put_exit(s, 'E');
+	put_walls(s, '1');
 }
 
-void	pp(t_map *m, t_mlx *mlx, t_img *img)
-{
-	put_background(m, mlx, img);
-	put_player(m, mlx, img, 'P');
-	put_collectibles(m, mlx, img, 'C');
-	put_exit(m, mlx, img, 'E');
-	put_walls(m, mlx, img, '1');
-}
+// void	pp(t_map *m, t_mlx *mlx, t_img *img)
+// {
+// 	put_a(m, mlx, img);
+// }

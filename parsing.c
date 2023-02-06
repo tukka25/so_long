@@ -6,35 +6,35 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:50:51 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/05 22:41:25 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:19:36 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_map(char *av[], t_map *m, t_counter *c)
+void	check_map(char *av[], t_sl *s)
 {
 	int		fd;
 	int		j;
 
-	m->height = 0;
-	m->map = NULL;
+	s->map.height = 0;
+	s->map.map = NULL;
 	j = 0;
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 		exit(0);
-	lines_counter(m, fd);
-	insert_map(m, av);
-	ft_printf("height = %d\n", m->height);
-	while (m->map[j])
+	lines_counter(&s->map, fd);
+	insert_map(&s->map, av);
+	ft_printf("height = %d\n", s->map.height);
+	while (s->map.map[j])
 	{
-		ft_printf("map = %s\n", m->map[j]);
+		ft_printf("map = %s\n", s->map.map[j]);
 		j++;
 	}
-	count_wid(m);
-	check_the_edges(m);
-	check_rectangular(m);
-	check_map_contents(m, c);
+	count_wid(&s->map);
+	check_the_edges(&s->map);
+	check_rectangular(&s->map);
+	check_map_contents(&s->map, &s->counter);
 	// valid_path(m, c);
 }
 
@@ -95,7 +95,8 @@ void	check_the_edges(t_map *m)
 	m->j = 0;
 	while (m->map[0][m->j] && m->map[0][m->j] == '1')
 		m->j++;
-	m->j--;
+	if (m->j > 0)
+		m->j--;
 	if (m->map[0][m->j] != '1' || m->j + 1 != m->width)
 		free_and_exit(m);
 	m->j = 0;
