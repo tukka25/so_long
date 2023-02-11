@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:07 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/11 14:31:31 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/11 14:34:37 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int ac, char *av[])
 		s.mlx.mlx_win = mlx_new_window(s.mlx.mlx, s.map.width * 64, s.map.height * 64, "so_long");
 		// mlx_loop_hook(s.mlx.mlx, key_hook, &s);
 		// mlx_hook(s.mlx.mlx_win, 2, 0, key_hook, &s);	
-		mlx_hook(s.mlx.mlx_win, 2, 0, key_hook, &s);
+		mlx_hook(s.mlx.mlx_win, 17, 0, key_hook, &s);
 		// mlx_loop_hook(s.mlx.mlx, key_hook, &s);
 		print_map(&s);
 		// print_map(&m, &mlx, &img);
