@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:59:04 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/01/12 18:06:34 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/11 21:42:54 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	check_after_percent(char s, va_list args)
 	if (s == '%')
 		x += ft_putchar('%');
 	else if (s == '\n')
-		write (1, "\n", 1);
+		write (2, "\n", 1);
 	else if (s == 'c')
 		x += ft_putchar(va_arg(args, int));
 	else if (s == 's')

@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 21:23:37 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/11 20:06:45 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/11 21:18:32 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	move_back(t_sl *s)
 			s->map.p_index_x -= 1;
 			s->counter.moves++;
 			ft_printf("total moves = %d\n", s->counter.moves);
-			print_map(s);
+			put_player_r(s, 'P');
 		}
 		// return ;
 	}

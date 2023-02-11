@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:11:40 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/11 20:04:31 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/11 21:57:04 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,7 @@ void	converting_xpm(t_sl *s)
 	s->img.e_img = mlx_xpm_file_to_image(s->mlx.mlx, s->mlx.exit_photo, &s->map.width, &s->map.height);
 	s->img.w_img = mlx_xpm_file_to_image(s->mlx.mlx, s->mlx.walls, &s->map.width, &s->map.height);
 	s->img.c_img = mlx_xpm_file_to_image(s->mlx.mlx, s->mlx.c_photo, &s->map.width, &s->map.height);
+	s->img.p2_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/tl.xpm", &s->map.width, &s->map.height);
+	if (s->img.img == NULL || s->img.p_img == NULL || s->img.e_img == NULL || s->img.w_img == NULL || s->img.c_img == NULL || s->img.p2_img == NULL)
+		exit (1);
 }
