@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/06 21:13:23 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/11 13:38:24 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_counter
 	int		collectibles;
 	int		player;
 	int		exit;
+	int		moves;
 }	t_counter;
 
 typedef struct s_so_long
@@ -92,4 +93,5 @@ void		pp(t_map *m, t_mlx *mlx, t_img *img);
 void		move_back(t_sl *s);
 void		move_up(t_sl *s);
 void		move_down(t_sl *s);
+void		map_handle(char *str, int fd);
 #endif
