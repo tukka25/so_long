@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/11 13:38:24 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/11 20:01:04 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ typedef struct s_map
 	int		width;
 	char	*map_count;
 	char	**map;
-	int		p_index;
+	int		p_index_x;
+	int		p_index_y;
 }	t_map;
 
 typedef struct s_mlx
@@ -51,6 +52,10 @@ typedef struct s_img
 {
 	void	*img;
 	void	*wall_img;
+	void	*p_img;
+	void	*e_img;
+	void	*c_img;
+	void	*w_img;
 }	t_img;
 
 typedef struct s_counter
@@ -86,12 +91,14 @@ void		put_collectibles(t_sl *s, char ch);
 void		put_exit(t_sl *s, char ch);
 void		put_walls(t_sl *s, char ch);
 int			key_hook(int keycode, t_sl *s);
-void		player_index(t_map *m);
+void		player_index(t_sl *s);
 void		print_map(t_sl *s);
 void		move_player(t_sl *s);
-void		pp(t_map *m, t_mlx *mlx, t_img *img);
+void		pp(t_sl *s);
 void		move_back(t_sl *s);
 void		move_up(t_sl *s);
 void		move_down(t_sl *s);
 void		map_handle(char *str, int fd);
+void		put_player_move(t_sl *s, char ch);
+void		converting_xpm(t_sl *s);
 #endif

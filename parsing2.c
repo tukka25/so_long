@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:19:46 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/05 22:51:31 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:31:18 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,24 +80,26 @@ void	check_map_contents(t_map *m, t_counter *c)
 		free_and_exit(m);
 }
 
-void	player_index(t_map *m)
+void	player_index(t_sl *s)
 {
-	m->i = 0;
-	m->j = 0;
-	m->p_index = 0;
-	while (m->map[m->i])
+	s->map.i = 0;
+	s->map.j = 0;
+	s->map.p_index_x = 0;
+	s->map.p_index_y = 0;
+	while (s->map.map[s->map.i])
 	{
-		m->j = 0;
-		while (m->map[m->i][m->j])
+		s->map.j = 0;
+		while (s->map.map[s->map.i][s->map.j])
 		{
-			if (m->map[m->i][m->j] == 'P')
+			if (s->map.map[s->map.i][s->map.j] == 'P')
 				break ;
-			m->j++;
-			m->p_index++;
+			s->map.j++;
+			s->map.p_index_x++;
 		}
-		if (m->j != m->width)
+		if (s->map.j != s->map.width)
 			break ;
-		printf("i = %d", m->p_index);
-		m->i++;
+		s->map.i++;
 	}
+	s->map.p_index_x = s->map.j;
+	s->map.p_index_y = s->map.i;
 }

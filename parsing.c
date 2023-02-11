@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:50:51 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/06 23:05:37 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/11 15:46:05 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ void	check_map(char *av[], t_sl *s)
 	check_the_edges(&s->map);
 	check_rectangular(&s->map);
 	check_map_contents(&s->map, &s->counter);
+	player_index(s);
+	ft_printf("player = %d", s->map.p_index_y);
+	ft_printf("player = %d", s->map.p_index_x);
 	// valid_path(m, c);
 }
 

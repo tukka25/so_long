@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 21:23:37 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/11 14:18:43 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/11 20:06:45 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	key_hook(int keycode, t_sl *s)
 	// int j = 0;
 	// s->counter.moves = 0;
 	// s->counter.moves++;
+	// converting_xpm(s);
 	if (keycode == 123 || keycode == 124 || keycode == 125 || keycode == 126)
 	{
 		if (keycode == 124)
@@ -30,7 +31,7 @@ int	key_hook(int keycode, t_sl *s)
 			move_up(s);
 		else if (keycode == 125)
 			move_down(s);
-		print_map(s);
+		// print_map(s);
 		// ft_printf("total moves = %d\n", s->counter.moves);
 	}
 	else if (keycode == 53)
@@ -40,124 +41,87 @@ int	key_hook(int keycode, t_sl *s)
 
 void	move_player(t_sl *s)
 {
-	int i = 0;
-	int j = 0;
-
-	while (s->map.map[i])
+	if (s->map.map[s->map.p_index_y][s->map.p_index_x] == 'P' && s->map.map[s->map.p_index_y][s->map.p_index_x + 1] != '1')
 	{
-		j = 0;
-		while (s->map.map[i][j])
+		if (s->map.map[s->map.p_index_y][s->map.p_index_x + 1] == 'C')
+			s->counter.collectibles--;
+		if (s->map.map[s->map.p_index_y][s->map.p_index_x + 1] == 'E' && s->counter.collectibles == 0)
+			exit(0);
+		if (s->map.map[s->map.p_index_y][s->map.p_index_x + 1] != 'E')
 		{
-			if (s->map.map[i][j] == 'P' && s->map.map[i][j + 1] != '1')
-			{
-				if (s->map.map[i][j + 1] == 'C')
-					s->counter.collectibles--;
-				if (s->map.map[i][j + 1] == 'E' && s->counter.collectibles == 0)
-					exit(0);
-				if (s->map.map[i][j + 1] != 'E')
-				{
-					s->map.map[i][j] = '0';
-					s->map.map[i][j + 1] = 'P';
-					s->counter.moves++;
-					ft_printf("total moves = %d\n", s->counter.moves);
-				}
-				return ;
+			s->map.map[s->map.p_index_y][s->map.p_index_x] = '0';
+			if (s->map.map[s->map.p_index_y][s->map.p_index_x + 1] == 'C'){
+				s->map.map[s->map.p_index_y][s->map.p_index_x + 1] = '0';
+				print_map(s);
 			}
-			j++;
+			s->map.map[s->map.p_index_y][s->map.p_index_x + 1] = 'P';
+			s->map.p_index_x += 1;
+			s->counter.moves++;
+			ft_printf("total moves = %d\n", s->counter.moves);
+			print_map(s);
 		}
-		i++;
 	}
 }
 
 void	move_back(t_sl *s)
 {
-	int i = 0;
-	int j = 0;
-
-	while (s->map.map[i])
+	if (s->map.map[s->map.p_index_y][s->map.p_index_x] == 'P' && s->map.map[s->map.p_index_y][s->map.p_index_x - 1] != '1')
 	{
-		j = 0;
-		while (s->map.map[i][j])
+		if (s->map.map[s->map.p_index_y][s->map.p_index_x - 1] == 'C')
+			s->counter.collectibles--;
+		if (s->map.map[s->map.p_index_y][s->map.p_index_x - 1] == 'E' && s->counter.collectibles == 0)
+			exit(0);
+		if (s->map.map[s->map.p_index_y][s->map.p_index_x - 1] != 'E')
 		{
-			if (s->map.map[i][j] == 'P' && s->map.map[i][j - 1] != '1')
-			{
-				if (s->map.map[i][j - 1] == 'C')
-					s->counter.collectibles--;
-				if (s->map.map[i][j - 1] == 'E' && s->counter.collectibles == 0)
-					exit(0);
-				if (s->map.map[i][j - 1] != 'E')
-				{
-					s->map.map[i][j] = '0';
-					s->map.map[i][j - 1] = 'P';
-					s->counter.moves++;
-					ft_printf("total moves = %d\n", s->counter.moves);
-				}
-				return ;
-			}
-			j++;
+			s->map.map[s->map.p_index_y][s->map.p_index_x] = '0';
+			s->map.map[s->map.p_index_y][s->map.p_index_x - 1] = 'P';
+			s->map.p_index_x -= 1;
+			s->counter.moves++;
+			ft_printf("total moves = %d\n", s->counter.moves);
+			print_map(s);
 		}
-		i++;
+		// return ;
 	}
 }
 
 void	move_up(t_sl *s)
 {
-	int i = 0;
-	int j = 0;
-
-	while (s->map.map[i])
+	if (s->map.map[s->map.p_index_y][s->map.p_index_x] == 'P' && s->map.map[s->map.p_index_y - 1][s->map.p_index_x] != '1')
 	{
-		j = 0;
-		while (s->map.map[i][j])
+		if (s->map.map[s->map.p_index_y - 1][s->map.p_index_x] == 'C')
+			s->counter.collectibles--;
+		if (s->map.map[s->map.p_index_y - 1][s->map.p_index_x] == 'E' && s->counter.collectibles == 0)
+			exit(0);
+		if (s->map.map[s->map.p_index_y - 1][s->map.p_index_x] != 'E')
 		{
-			if (s->map.map[i][j] == 'P' && s->map.map[i - 1][j] != '1')
-			{
-				if (s->map.map[i - 1][j] == 'C')
-					s->counter.collectibles--;
-				if (s->map.map[i - 1][j] == 'E' && s->counter.collectibles == 0)
-					exit(0);
-				if (s->map.map[i - 1][j] != 'E')
-				{
-					s->map.map[i][j] = '0';
-					s->map.map[i - 1][j] = 'P';
-					s->counter.moves++;
-					ft_printf("total moves = %d\n", s->counter.moves);
-				}
-				return ;
-			}
-			j++;
+			s->map.map[s->map.p_index_y][s->map.p_index_x] = '0';
+			s->map.map[s->map.p_index_y - 1][s->map.p_index_x] = 'P';
+			s->map.p_index_y -= 1;
+			s->counter.moves++;
+			ft_printf("total moves = %d\n", s->counter.moves);
+			print_map(s);
 		}
-		i++;
+		// return ;
 	}
 }
 
 void	move_down(t_sl *s)
 {
-	int i = 0;
-	int j = 0;
-
-	while (s->map.map[i])
+	if (s->map.map[s->map.p_index_y][s->map.p_index_x] == 'P' && s->map.map[s->map.p_index_y + 1][s->map.p_index_x] != '1')
 	{
-		j = 0;
-		while (s->map.map[i][j])
+		if (s->map.map[s->map.p_index_y + 1][s->map.p_index_x] == 'C')
+			s->counter.collectibles--;
+		if (s->map.map[s->map.p_index_y + 1][s->map.p_index_x] == 'E' && s->counter.collectibles == 0)
+			exit(0);
+		if (s->map.map[s->map.p_index_y + 1][s->map.p_index_x] != 'E')
 		{
-			if (s->map.map[i][j] == 'P' && s->map.map[i + 1][j] != '1')
-			{
-				if (s->map.map[i + 1][j] == 'C')
-					s->counter.collectibles--;
-				if (s->map.map[i + 1][j] == 'E' && s->counter.collectibles == 0)
-					exit(0);
-				if (s->map.map[i + 1][j] != 'E')
-				{
-					s->map.map[i][j] = '0';
-					s->map.map[i + 1][j] = 'P';
-					s->counter.moves++;
-					ft_printf("total moves = %d\n", s->counter.moves);
-				}
-				return ;
-			}
-			j++;
+			s->map.map[s->map.p_index_y][s->map.p_index_x] = '0';
+			s->map.map[s->map.p_index_y + 1][s->map.p_index_x] = 'P';
+			s->map.p_index_y += 1;
+			s->counter.moves++;
+			ft_printf("total moves = %d\n", s->counter.moves);
+			print_map(s);
 		}
-		i++;
+		// return ;
 	}
 }
