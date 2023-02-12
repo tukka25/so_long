@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/11 21:31:23 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/12 12:57:54 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void		free_and_exit(t_map *m);
 void		check_the_edges(t_map *m);
 void		check_rectangular(t_map *m);
 void		check_map_contents(t_map *m, t_counter *c);
-void		valid_path(t_map *m, t_counter *c);
+void		valid_path(t_sl *s);
 void		put_background(t_sl *s);
 void		put_player(t_sl *s, char ch);
 void		put_collectibles(t_sl *s, char ch);

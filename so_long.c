@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:07 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/11 21:55:39 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:26:28 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ int	main(int ac, char *av[])
 	s.mlx.exit_photo = "./photos/black-hole-2.xpm";
 	s.mlx.p_photo = "./photos/tt.xpm";
 	s.mlx.walls = "./photos/out.xpm";
-	converting_xpm(&s);
+	// converting_xpm(&s);
 	if (ac == 2)
 	{
 		check_map(av, &s);
-		// converting_xpm(&s);
 		s.mlx.mlx = mlx_init();
 		s.mlx.mlx_win = mlx_new_window(s.mlx.mlx, s.map.width * 64, s.map.height * 64, "so_long");
+		converting_xpm(&s);
 		mlx_hook(s.mlx.mlx_win, 2, 0, key_hook, &s);
 		pp(&s);
 		mlx_loop(s.mlx.mlx);

@@ -21,14 +21,15 @@ all:$(NAME)
 $(NAME):$(OBJS)
 	@make -C ./libft
 	@make -C ./mlx
-	# $(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) 
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) ./libft/libft.a  ./mlx/libmlx.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
 	rm -rf ./libft/*.o
+	rm -rf ./mlx/*.o
 fclean: clean
 	rm -rf $(NAME)
 	rm -rf ./libft/libft.a
+	rm -rf ./mlx/*.a
 
 re:fclean all

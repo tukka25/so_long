@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:50:51 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/11 21:54:08 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:41:13 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	check_map(char *av[], t_sl *s)
 	check_rectangular(&s->map);
 	check_map_contents(&s->map, &s->counter);
 	player_index(s);
+	// converting_xpm(s);
+	// valid_path(s);
 	ft_printf("player = %d", s->map.p_index_y);
 	ft_printf("player = %d", s->map.p_index_x);
 	// valid_path(m, c);
@@ -128,11 +130,12 @@ void	map_handle(char *str, int fd)
 		exit(1);
 	while (str[i] && str[i] != '.')
 		i++;
-	if ((str[i] == '.' && str[i + 1] == 'b' && str[i + 2] == 'e' && str[i + 3] == 'r' &&  str[i + 4] == '\0'))
-		ft_printf("valid map");
+	if ((str[i] == '.' && str[i + 1] == 'b'
+			&& str[i + 2] == 'e' && str[i + 3] == 'r' && str[i + 4] == '\0'))
+		ft_printf("valid map\n");
 	else
 	{
-		ft_printf("Dont play with me, put a valid map name");
+		ft_printf("Dont play with me, put a valid map name\n");
 		exit(1);
 	}
 }
