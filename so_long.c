@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:07 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/14 18:20:27 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:58:19 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int ac, char *av[])
 	i = 0;
 	str = NULL;
 	s.counter.moves = 0;
+	s.counter.enemy = 0;
 	s.mlx.background = "./photos/ground.xpm";
 	s.mlx.c_photo = "./photos/nez.xpm";
 	s.mlx.exit_photo = "./photos/black-hole-2.xpm";

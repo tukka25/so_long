@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/14 18:17:16 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:39:53 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_counter
 	int		demons;
 	int		moves;
 	char	*st;
+	int		enemy;
 }	t_counter;
 
 typedef struct s_so_long
@@ -114,5 +115,7 @@ void		check_behind2(t_sl *s);
 char		*strr_i(int totoal_moves);
 void		last_photo(t_sl *s);
 void		sleep_exit(void);
-int			enemy_key(int keycode, t_sl *s);
+int			enemy_key(t_sl *s);
+void		move_enemy(t_sl *s);
+void		move_enemy_back(t_sl *s);
 #endif
