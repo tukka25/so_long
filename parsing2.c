@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:19:46 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/11 16:31:18 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:43:48 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,10 @@ void	check_map_contents(t_map *m, t_counter *c)
 				c->exit++;
 			else if (m->map[m->i][m->j] == 'C')
 				c->collectibles++;
+			else if (m->map[m->i][m->j] == 'D')
+				c->demons++;
+			else if (!(m->map[m->i][m->j] == '1' || m->map[m->i][m->j] == '0'))
+				free_and_exit(m);
 			m->j++;
 		}
 		m->i++;

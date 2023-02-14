@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:11:00 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/12 19:40:05 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:17:47 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	put_player(t_sl *s, char ch)
 				mlx_put_image_to_window(s->mlx.mlx, s->mlx.mlx_win, s->img.e_img, k, c);
 			else if (s->map.map[s->map.i][s->map.j] == '1')
 				mlx_put_image_to_window(s->mlx.mlx, s->mlx.mlx_win, s->img.w_img, k, c);
-			// else
-			// 	mlx_put_image_to_window(s->mlx.mlx, s->mlx.mlx_win, s->img.img, k, c);
+			else if (s->map.map[s->map.i][s->map.j] == 'D')
+				mlx_put_image_to_window(s->mlx.mlx, s->mlx.mlx_win, s->img.d_img, k, c);
 			k = k + 64;
 			s->map.j++;
 		}
@@ -82,7 +82,6 @@ void	put_player_r(t_sl *s, char ch)
 		k = 0;
 		while (s->map.map[s->map.i][s->map.j])
 		{
-			// s->img.img = mlx_xpm_file_to_image(s->mlx.mlx, s->mlx.background, &s->map.width, &s->map.height);
 			mlx_put_image_to_window(s->mlx.mlx, s->mlx.mlx_win, s->img.img, k, c);
 			if (s->map.map[s->map.i][s->map.j] == 'P')
 				mlx_put_image_to_window(s->mlx.mlx, s->mlx.mlx_win, s->img.p2_img, k, c);
@@ -92,8 +91,8 @@ void	put_player_r(t_sl *s, char ch)
 				mlx_put_image_to_window(s->mlx.mlx, s->mlx.mlx_win, s->img.e_img, k, c);
 			else if (s->map.map[s->map.i][s->map.j] == '1')
 				mlx_put_image_to_window(s->mlx.mlx, s->mlx.mlx_win, s->img.w_img, k, c);
-			// else
-			// 	mlx_put_image_to_window(s->mlx.mlx, s->mlx.mlx_win, s->img.img, k, c);
+			else if (s->map.map[s->map.i][s->map.j] == 'D')
+				mlx_put_image_to_window(s->mlx.mlx, s->mlx.mlx_win, s->img.d_img, k, c);
 			k = k + 64;
 			s->map.j++;
 		}

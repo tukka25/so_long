@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/12 12:57:54 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:17:16 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef struct s_img
 	void	*e_img;
 	void	*c_img;
 	void	*w_img;
+	void	*d_img;
+	void	*l_img;
 }	t_img;
 
 typedef struct s_counter
@@ -65,7 +67,9 @@ typedef struct s_counter
 	int		collectibles;
 	int		player;
 	int		exit;
+	int		demons;
 	int		moves;
+	char	*st;
 }	t_counter;
 
 typedef struct s_so_long
@@ -105,4 +109,10 @@ void		put_player_move(t_sl *s, char ch);
 void		converting_xpm(t_sl *s);
 void		put_player_r(t_sl *s, char ch);
 void		rot(t_sl *s);
+void		checker_behind(t_sl *s);
+void		check_behind2(t_sl *s);
+char		*strr_i(int totoal_moves);
+void		last_photo(t_sl *s);
+void		sleep_exit(void);
+int			enemy_key(int keycode, t_sl *s);
 #endif

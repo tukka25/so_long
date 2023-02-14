@@ -5,7 +5,9 @@ SRC =	so_long.c    \
 		utils.c      \
 		parsing2.c   \
 		drawing.c    \
-		hooks.c       
+		hooks.c      \
+		valid_path.c \
+		enemy.c
    
 OBJS = $(SRC:.c=.o)
 

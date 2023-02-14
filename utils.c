@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:11:40 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/12 19:37:27 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:50:29 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,69 +56,75 @@ void	converting_xpm(t_sl *s)
 	s->img.img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/ground.xpm", &i, &i);
 	s->img.p_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/tt.xpm", &i, &i);
 	s->img.e_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/black-hole-2.xpm", &i, &i);
-	s->img.w_img = mlx_xpm_file_to_image(s->mlx.mlx,  "./photos/out.xpm", &i, &i);
-	s->img.c_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/coins.xpm", &i, &i);
+	s->img.w_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/out.xpm", &i, &i);
+	s->img.c_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/nez.xpm", &i, &i);
 	s->img.p2_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/tl.xpm", &i, &i);
-	if (s->img.img == NULL || s->img.p_img == NULL || s->img.e_img == NULL || s->img.w_img == NULL || s->img.c_img == NULL || s->img.p2_img == NULL)
+	s->img.d_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/e3.xpm", &i, &i);
+	if (s->img.img == NULL || s->img.p_img == NULL || s->img.e_img == NULL || s->img.w_img == NULL || s->img.c_img == NULL || s->img.p2_img == NULL || s->img.d_img == NULL)
 		exit (1);
 }
 
-// void	valid_path(t_sl *s)
-// {
-// 	s->map.i = 0;
-// 	s->map.j = 0;
-// 	while (s->map.map[s->map.i])
-// 	{
-// 		s->map.j = 0;
-// 		while (s->map.map[s->map.i][s->map.j])
-// 		{
-// 			if (s->map.map[s->map.i][s->map.j] == '1')
-// 				break ;
-// 			if (s->map.map[s->map.i][s->map.j] == 'C')
-// 				s->counter.collectibles--;
-// 			if (s->map.map[s->map.i][s->map.j] == 'E')
-// 				s->counter.exit--;
-// 			if (s->counter.collectibles == 0 && s->counter.exit == 0)
-// 				return ;
-// 			if (s->map.j == s->map.width)
-// 			{
-// 				s->map.i += 1;
-// 				while (s->map.map[s->map.i][s->map.j])
-// 				{
-// 					if (s->map.map[s->map.i][s->map.j] == '1')
-// 					{
-// 						s->map.i += 1;
-// 						while (s->map.map[s->map.i][s->map.j])
-// 						{
-// 							if (s->map.map[s->map.i][s->map.j] == '1')
-// 							{
-// 								s->map.i += 1;
-// 								while (s->map.map[s->map.i][s->map.j])
-// 								{
-// 									if (s->map.map[s->map.i][s->map.j] == '1')
-// 										break ;
-// 									if (s->map.map[s->map.i][s->map.j] == 'C')
-// 										s->counter.collectibles--;
-// 									if (s->map.map[s->map.i][s->map.j] == 'E')
-// 										s->counter.exit--;
-// 									if (s->counter.collectibles == 0 && s->counter.exit == 0)
-// 										return ;
-// 									s->map.j--;
-// 								}
-// 							}
-// 							s->map.j--;
-// 						}
-// 							s->map.j--;
-// 					}
-// 					s->map.j--;
-// 				}
-// 			}
-// 			s->map.j++;
-// 		}
-// 	}
-// 	if (s->counter.collectibles != 0 && s->counter.exit != 0)
-// 	{
-// 		ft_printf("not a valid path");
-// 		exit(0);
-// 	}
-// }
+void	valid_path(t_sl *s)
+{
+	// s->map.i = 0;
+	// s->map.j = 0;
+	// while (s->map.map[s->map.i])
+	// {
+	// 	s->map.j = 0;
+	// 	while (s->map.map[s->map.i][s->map.j])
+	// 	{
+	// 		if (s->map.map[s->map.i][s->map.j] == '1')
+	// 			break ;
+	// 		if (s->map.map[s->map.i][s->map.j] == 'C')
+	// 			s->counter.collectibles--;
+	// 		if (s->map.map[s->map.i][s->map.j] == 'E')
+	// 			s->counter.exit--;
+	// 		if (s->counter.collectibles == 0 && s->counter.exit == 0)
+	// 			return ;
+	// 		if (s->map.j == s->map.width)
+	// 		{
+	// 			s->map.i += 1;
+	// 			while (s->map.map[s->map.i][s->map.j])
+	// 			{
+	// 				if (s->map.map[s->map.i][s->map.j] == '1')
+	// 				{
+	// 					s->map.i += 1;
+	// 					while (s->map.map[s->map.i][s->map.j])
+	// 					{
+	// 						if (s->map.map[s->map.i][s->map.j] == '1')
+	// 						{
+	// 							s->map.i += 1;
+	// 							while (s->map.map[s->map.i][s->map.j])
+	// 							{
+	// 								if (s->map.map[s->map.i][s->map.j] == '1')
+	// 									break ;
+	// 								if (s->map.map[s->map.i][s->map.j] == 'C')
+	// 									s->counter.collectibles--;
+	// 								if (s->map.map[s->map.i][s->map.j] == 'E')
+	// 									s->counter.exit--;
+	// 								if (s->counter.collectibles == 0 && s->counter.exit == 0)
+	// 									return ;
+	// 								s->map.j--;
+	// 							}
+	// 						}
+	// 						s->map.j--;
+	// 					}
+	// 						s->map.j--;
+	// 				}
+	// 				s->map.j--;
+	// 			}
+	// 		}
+	// 		s->map.j++;
+	// 	}
+	// 	s->map.i++;
+	// }
+	// // ft_printf("hh");
+	// if (s->counter.collectibles != 0 && s->counter.exit != 0)
+	// {
+	// 	ft_printf("not a valid path");
+	// 	exit(0);
+	// }
+	checker_behind(s);
+	// mlx_string_put()
+	// check_behind2
+}
