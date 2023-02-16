@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 21:23:37 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/14 16:43:55 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:36:00 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 int	key_hook(int keycode, t_sl *s)
 {
-	// t_counter	c;
-	// (void)m;
-	// (void)keycode;
-	// int j = 0;
-	// s->counter.moves = 0;
-	// s->counter.moves++;
-	// converting_xpm(s);
 	if (keycode == 123 || keycode == 124 || keycode == 125 || keycode == 126)
 	{
 		if (keycode == 124)
@@ -31,11 +24,10 @@ int	key_hook(int keycode, t_sl *s)
 			move_up(s);
 		else if (keycode == 125)
 			move_down(s);
-		// print_map(s);
-		// ft_printf("total moves = %d\n", s->counter.moves);
 	}
 	else if (keycode == 53)
 		exit(0);
+	print_map(s, 0x00000000);
 	return (0);
 }
 
@@ -50,7 +42,7 @@ void	move_player(t_sl *s)
 			if (s->map.map[s->map.p_index_y][s->map.p_index_x + 1] == 'D')
 			{
 				ft_printf("looooser, you will kill it next time");
-				exit(0);
+				free_and_destory(s);
 			}
 			last_photo(s);
 		}
@@ -60,13 +52,13 @@ void	move_player(t_sl *s)
 			if (s->map.map[s->map.p_index_y][s->map.p_index_x + 1] == 'C')
 			{
 				s->map.map[s->map.p_index_y][s->map.p_index_x + 1] = '0';
-				print_map(s);
+				print_map(s, 0x00000000);
 			}
 			s->map.map[s->map.p_index_y][s->map.p_index_x + 1] = 'P';
 			s->map.p_index_x += 1;
 			s->counter.moves++;
 			ft_printf("total moves = %d\n", s->counter.moves);
-			print_map(s);
+			print_map(s, 0x00000000);
 		}
 	}
 }
@@ -82,7 +74,7 @@ void	move_back(t_sl *s)
 			if (s->map.map[s->map.p_index_y][s->map.p_index_x - 1] == 'D')
 			{
 				ft_printf("looooser, you will kill it next time");
-				exit(0);
+				free_and_destory(s);
 			}
 			last_photo(s);
 		}
@@ -93,7 +85,7 @@ void	move_back(t_sl *s)
 			s->map.p_index_x -= 1;
 			s->counter.moves++;
 			ft_printf("total moves = %d\n", s->counter.moves);
-			rot(s);
+			rot(s, 0x00000000);
 		}
 		// return ;
 	}
@@ -110,7 +102,7 @@ void	move_up(t_sl *s)
 			if (s->map.map[s->map.p_index_y - 1][s->map.p_index_x] == 'D')
 			{
 				ft_printf("looooser, you will kill it next time");
-				exit(0);
+				free_and_destory(s);
 			}
 			last_photo(s);
 			// sleep(2);
@@ -123,11 +115,10 @@ void	move_up(t_sl *s)
 			s->map.p_index_y -= 1;
 			s->counter.moves++;
 			ft_printf("total moves = %d\n", s->counter.moves);
-			print_map(s);
+			print_map(s, 0x00000000);
 		}
 		// return ;
 	}
-	
 }
 
 void	move_down(t_sl *s)
@@ -141,7 +132,7 @@ void	move_down(t_sl *s)
 			if (s->map.map[s->map.p_index_y + 1][s->map.p_index_x] == 'D')
 			{
 				ft_printf("looooser, you will kill it next time");
-				exit(0);
+				free_and_destory(s);
 			}
 			last_photo(s);
 		}
@@ -152,7 +143,7 @@ void	move_down(t_sl *s)
 			s->map.p_index_y += 1;
 			s->counter.moves++;
 			ft_printf("total moves = %d\n", s->counter.moves);
-			print_map(s);
+			print_map(s, 0x00000000);
 		}
 	}
 }

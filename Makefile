@@ -7,7 +7,8 @@ SRC =	so_long.c    \
 		drawing.c    \
 		hooks.c      \
 		valid_path.c \
-		enemy.c
+		enemy.c      \
+		destory.c    
    
 OBJS = $(SRC:.c=.o)
 

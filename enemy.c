@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:15:50 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/14 19:02:28 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:31:20 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,33 @@
 
 int	enemy_key(t_sl *s)
 {
-	int		i;
+	static int		i;
 
-	i = 0;
-	print_map(s);
-	if (s->counter.enemy == 0)
+	i++;
+	// print_map(s, 0x00000000);
+	if (i == 2000)
+		animation(s);
+	if (i == 5080)
 	{
-		while (s->counter.enemy < 3)
+		if (s->counter.enemy < 6 && s->counter.flag == 0)
 		{
-			mlx_clear_window(s->mlx.mlx, s->mlx.mlx_win);
 			move_enemy(s);
-			usleep(10000);
-			// print_map(s);
 			s->counter.enemy++;
+			if (s->counter.enemy == 5)
+				s->counter.flag = 6;
 		}
-	}
-	else if (s->counter.enemy == 3)
-	{
-		while (s->counter.enemy > 0)
+		else
 		{
-			mlx_clear_window(s->mlx.mlx, s->mlx.mlx_win);
 			move_enemy_back(s);
-			usleep(10000);
-			// print_map(s);
 			s->counter.enemy--;
+			if (s->counter.enemy == 0)
+				s->counter.flag = 0;
 		}
+		animation(s);
+		print_map(s, 0x00000000);
+		i = 0;
 	}
-	print_map(s);
+	// animation(s);
 	return (0);
 }
 
@@ -53,8 +53,13 @@ void	move_enemy(t_sl *s)
 		s->map.j = 0;
 		while (s->map.map[s->map.i][s->map.j])
 		{
-			if (s->map.map[s->map.i][s->map.j] == 'D' && s->map.map[s->map.i][s->map.j + 1] != '1' && s->map.map[s->map.i][s->map.j + 1] != 'E')
+			if (s->map.map[s->map.i][s->map.j] == 'D' && s->map.map[s->map.i][s->map.j + 1] != '1' && s->map.map[s->map.i][s->map.j + 1] != 'E' && s->map.map[s->map.i][s->map.j + 1] != 'C')
 			{
+				if (s->map.map[s->map.i][s->map.j + 1] == 'P')
+				{
+					ft_printf("you lost!");
+					free_and_destory(s);
+				}
 				s->map.map[s->map.i][s->map.j] = '0';
 				s->map.map[s->map.i][s->map.j + 1] = 'D';
 			}
@@ -62,8 +67,6 @@ void	move_enemy(t_sl *s)
 		}
 		s->map.i++;
 	}
-	// s->counter.enemy += 3;
-	// print_map(s);
 }
 
 void	move_enemy_back(t_sl *s)
@@ -75,8 +78,13 @@ void	move_enemy_back(t_sl *s)
 		s->map.j = 0;
 		while (s->map.map[s->map.i][s->map.j])
 		{
-			if (s->map.map[s->map.i][s->map.j] == 'D' && s->map.map[s->map.i][s->map.j - 1] != '1' && s->map.map[s->map.i][s->map.j - 1] != 'E')
+			if (s->map.map[s->map.i][s->map.j] == 'D' && s->map.map[s->map.i][s->map.j - 1] != '1' && s->map.map[s->map.i][s->map.j - 1] != 'E' && s->map.map[s->map.i][s->map.j - 1] != 'C')
 			{
+				if (s->map.map[s->map.i][s->map.j - 1] == 'P')
+				{
+					ft_printf("you lost!");
+					free_and_destory(s);
+				}
 				s->map.map[s->map.i][s->map.j] = '0';
 				s->map.map[s->map.i][s->map.j - 1] = 'D';
 			}
@@ -85,4 +93,20 @@ void	move_enemy_back(t_sl *s)
 		s->map.i++;
 	}
 	// print_map(s);
+}
+
+void	delay(void)
+{
+	int		i;
+	
+	i = 0;
+	while (i < 22340)
+	{
+		i++;
+	}
+	// i = -999999;
+	// while (i < 21474830)
+	// {
+	// 	i++;
+	// }
 }

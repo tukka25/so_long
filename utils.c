@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:11:40 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/14 13:50:29 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/15 21:33:16 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,16 @@ void	converting_xpm(t_sl *s)
 	int	i;
 
 	i = 64;
-	s->img.img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/ground.xpm", &i, &i);
+	s->img.img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/bb.xpm", &i, &i);
 	s->img.p_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/tt.xpm", &i, &i);
 	s->img.e_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/black-hole-2.xpm", &i, &i);
 	s->img.w_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/out.xpm", &i, &i);
 	s->img.c_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/nez.xpm", &i, &i);
 	s->img.p2_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/tl.xpm", &i, &i);
 	s->img.d_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/e3.xpm", &i, &i);
+	s->img.c2_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/nezuku2.xpm", &i, &i);
 	if (s->img.img == NULL || s->img.p_img == NULL || s->img.e_img == NULL || s->img.w_img == NULL || s->img.c_img == NULL || s->img.p2_img == NULL || s->img.d_img == NULL)
-		exit (1);
+		free_and_destory(s);
 }
 
 void	valid_path(t_sl *s)

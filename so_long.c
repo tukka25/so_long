@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:07 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/14 18:58:19 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:36:20 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,16 @@ int	main(int ac, char *av[])
 	t_sl		s;
 	char		**str;
 
-	i = 0;
+	i = 0x00000000;
 	str = NULL;
 	s.counter.moves = 0;
+	s.counter.flag = 0;
 	s.counter.enemy = 0;
-	s.mlx.background = "./photos/ground.xpm";
+	s.mlx.background = "./photos/bb.xpm";
 	s.mlx.c_photo = "./photos/nez.xpm";
 	s.mlx.exit_photo = "./photos/black-hole-2.xpm";
 	s.mlx.p_photo = "./photos/tt.xpm";
 	s.mlx.walls = "./photos/out.xpm";
-	// s.mlx.
-	// converting_xpm(&s);
 	if (ac == 2)
 	{
 		check_map(av, &s);
@@ -38,61 +37,66 @@ int	main(int ac, char *av[])
 		converting_xpm(&s);
 		mlx_hook(s.mlx.mlx_win, 2, 0, key_hook, &s);
 		mlx_loop_hook(s.mlx.mlx, enemy_key, &s);
-		pp(&s);
-		int factor_y = 20;
-		int factor_x = 20;
-		mlx_string_put(s.mlx.mlx, s.mlx.mlx_win, 60 + factor_x, 56 + factor_y, 0x00000000, "---------");
-		mlx_string_put(s.mlx.mlx, s.mlx.mlx_win, 58 + factor_x, 64 + factor_y, 0x00000000, "|");
-		mlx_string_put(s.mlx.mlx, s.mlx.mlx_win, 64 + factor_x, 64 + factor_y, 0x00000000, s.counter.st);
-		mlx_string_put(s.mlx.mlx, s.mlx.mlx_win, 120 + factor_x, 64 + factor_y, 0x00000000, "|");
-		mlx_string_put(s.mlx.mlx, s.mlx.mlx_win, 62 + factor_x, 71 + factor_y, 0x00000000, "---------");
+		pp(&s, i);
+		mlx_string_put(s.mlx.mlx, s.mlx.mlx_win, 80, 86, i, "---------");
+		mlx_string_put(s.mlx.mlx, s.mlx.mlx_win, 78, 84, i, "|");
+		mlx_string_put(s.mlx.mlx, s.mlx.mlx_win, 84, 84, i, s.counter.st);
+		mlx_string_put(s.mlx.mlx, s.mlx.mlx_win, 140, 84, i, "|");
+		mlx_string_put(s.mlx.mlx, s.mlx.mlx_win, 82, 91, i, "---------");
 		mlx_loop(s.mlx.mlx);
 	}
 	exit(0);
 }
 
-void	print_map(t_sl *s)
+void	print_map(t_sl *s, int i)
 {
+	char	*line;
+
+	line = "-------------------";
 	put_player(s, 'P');
 	s->counter.st = strr_i(s->counter.moves);
-	int factor_y = 20;
-	int factor_x = 20;
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 60 + factor_x, 56 + factor_y, 0x00000000, "-------------------");
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 58 + factor_x, 64 + factor_y, 0x00000000, "|");
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 64 + factor_x, 64 + factor_y, 0x00000000, s->counter.st);
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 190 + factor_x, 64 + factor_y, 0x00000000, "|");
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 62 + factor_x, 71 + factor_y, 0x00000000, "-------------------");
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 80, 76, i, line);
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 78, 84, i, "|");
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 84, 84, i, s->counter.st);
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 210, 84, i, "|");
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 82, 91, i, line);
 }
 
-void	pp(t_sl *s)
+void	pp(t_sl *s, int i)
 {
+	char	*line;
+
+	line = "-------------------";
 	put_background(s);
 	put_player(s, 'P');
-	int factor_y = 20;
-	int factor_x = 20;
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 60 + factor_x, 56 + factor_y, 0x00000000, "-------------------");
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 58 + factor_x, 64 + factor_y, 0x00000000, "|");
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 64 + factor_x, 64 + factor_y, 0x00000000, s->counter.st);
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 190 + factor_x, 64 + factor_y, 0x00000000, "|");
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 62 + factor_x, 71 + factor_y, 0x00000000, "-------------------");
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 80, 76, i, line);
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 78, 84, i, "|");
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 84, 84, i, s->counter.st);
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 210, 84, i, "|");
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 82, 91, i, line);
 }
 
-void	rot(t_sl *s)
+void	rot(t_sl *s, int i)
 {
+	char	*line;
+
+	line = "-------------------";
 	put_player_r(s, 'P');
 	s->counter.st = strr_i(s->counter.moves);
-	int factor_y = 20;
-	int factor_x = 20;
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 60 + factor_x, 56 + factor_y, 0x00000000, "-------------------");
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 58 + factor_x, 64 + factor_y, 0x00000000, "|");
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 64 + factor_x, 64 + factor_y, 0x00000000, s->counter.st);
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 190 + factor_x, 64 + factor_y, 0x00000000, "|");
-	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 62 + factor_x, 71 + factor_y, 0x00000000, "-------------------");
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 80, 76, i, line);
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 78, 84, i, "|");
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 84, 84, i, s->counter.st);
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 210, 84, i, "|");
+	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 82, 91, i, line);
 }
 
-char *strr_i(int totoal_moves)
+char	*strr_i(int totoal_moves)
 {
-	char *s = ft_strdup("total moves = ");
-	char *join = ft_strjoin(s, ft_itoa(totoal_moves));
-	return join;
+	char	*s;
+	char	*join;
+
+	s = ft_strdup("total moves = ");
+	join = ft_strjoin(s, ft_itoa(totoal_moves));
+	free(s);
+	return (join);
 }

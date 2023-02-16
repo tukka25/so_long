@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 19:56:27 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/14 16:46:43 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:48:11 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,6 @@ void	last_photo(t_sl *s)
 	// sleep_exit();
 	// return ;
 	// pause();
-	// exit(0);
+	exit(0);
 }
 
-void	sleep_exit(void)
-{
-	// usleep(3000);
-	// exit(0);
-}
