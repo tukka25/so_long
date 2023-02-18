@@ -9,7 +9,9 @@ SRC =	so_long.c    \
 		valid_path.c \
 		enemy.c      \
 		destory.c    \
-		utils2.c
+		utils2.c     \
+		enemy_utils.c \
+		# leacks_cheker_ex.c
    
 OBJS = $(SRC:.c=.o)
 

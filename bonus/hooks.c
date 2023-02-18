@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 21:23:37 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/16 22:48:03 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/17 04:43:33 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ void	move_player(t_sl *s)
 			if (s->map.map[s->map.p_index_y][s->map.p_index_x + 1] == 'C')
 			{
 				s->map.map[s->map.p_index_y][s->map.p_index_x + 1] = '0';
-				print_map(s, 0x00000000);
+				print_map(s);
 			}
 			s->map.map[s->map.p_index_y][s->map.p_index_x + 1] = 'P';
 			s->map.p_index_x += 1;
 			s->counter.moves++;
 			ft_printf("total moves = %d\n", s->counter.moves);
-			print_map(s, 0x00000000);
+			print_map(s);
 		}
 	}
 }
@@ -85,7 +85,7 @@ void	move_back(t_sl *s)
 			s->map.p_index_x -= 1;
 			s->counter.moves++;
 			ft_printf("total moves = %d\n", s->counter.moves);
-			rot(s, 0x00000000);
+			rot(s);
 		}
 		// return ;
 	}
@@ -115,7 +115,7 @@ void	move_up(t_sl *s)
 			s->map.p_index_y -= 1;
 			s->counter.moves++;
 			ft_printf("total moves = %d\n", s->counter.moves);
-			print_map(s, 0x00000000);
+			print_map(s);
 		}
 		// return ;
 	}
@@ -143,7 +143,7 @@ void	move_down(t_sl *s)
 			s->map.p_index_y += 1;
 			s->counter.moves++;
 			ft_printf("total moves = %d\n", s->counter.moves);
-			print_map(s, 0x00000000);
+			print_map(s);
 		}
 	}
 }

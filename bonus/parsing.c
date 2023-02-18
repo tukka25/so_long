@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:50:51 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/16 22:43:52 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/18 15:51:35 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	check_map(char *av[], t_sl *s)
 	player_index(s);
 	ft_printf("player = %d ", s->map.p_index_y);
 	ft_printf("player = %d\n", s->map.p_index_x);
-	valid_path(s);
 	while (s->map.map[j])
 	{
 		ft_printf("map = %s\n", s->map.map[j]);
@@ -129,10 +128,7 @@ void	map_handle(char *str, int fd)
 		ft_printf("Error\n");
 		exit(1);
 	}
-	while (str[i] && str[i] != '.')
-		i++;
-	if ((str[i] == '.' && str[i + 1] == 'b'
-			&& str[i + 2] == 'e' && str[i + 3] == 'r' && str[i + 4] == '\0'))
+	if (ft_strncmp(str, ".ber", 4) == 0)
 		ft_printf("valid map name\n");
 	else
 	{

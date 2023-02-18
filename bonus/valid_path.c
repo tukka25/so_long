@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 19:56:27 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/16 22:42:33 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/18 15:59:42 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,15 @@ void	last_photo(t_sl *s)
 	// int		c = 0;
 	s->map.i = 0;
 	s->map.j = 0;
-	ft_printf("ffff\n");
 	mlx_clear_window(s->mlx.mlx, s->mlx.mlx_win);
 	s->counter.st = strr_i(s->counter.moves + 1);
 	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 650, 300, 16766720, "You Win🥳🥳");
 	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 650, 350, 16766720, s->counter.st);
 	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 20, 20, 16711680, "Press ESC to exit");
 	s->counter.moves++;
+	ft_printf("You Won!!");
 	ft_printf("total moves = %d\n", s->counter.moves);
-	// exit(0);
+	exit(0);
 }
 
 void	map_dup(t_sl *s)
@@ -88,13 +88,6 @@ void	map_dup(t_sl *s)
 		i++;
 	}
 	s->map.map_tmp[i] = NULL;
-	// i = 0;
-	// ft_printf("\n\n");
-	// while (s->map.map_tmp[i])
-	// {
-	// 	ft_printf("tmp = %s\n", s->map.map_tmp[i]);
-	// 	i++;
-	// }
 }
 
 int	check_valid_path(int y, int x, char **str, t_sl *s)
@@ -113,12 +106,5 @@ int	check_valid_path(int y, int x, char **str, t_sl *s)
 	check_valid_path(y, x + 1, str, s);
 	check_valid_path(y + 1, x, str, s);
 	check_valid_path(y, x - 1, str, s);
-	// int i = 0;
-	// ft_printf("\n\n");
-	// while (s->map.map_tmp[i])
-	// {
-	// 	ft_printf("tmp = %s\n", s->map.map_tmp[i]);
-	// 	i++;
-	// }
 	return (0);
 }
