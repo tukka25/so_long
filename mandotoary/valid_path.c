@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 19:56:27 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/17 03:18:57 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:21:59 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,9 @@ void	last_photo(t_sl *s)
 	mlx_clear_window(s->mlx.mlx, s->mlx.mlx_win);
 	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 650, 300, 16766720, "You Win🥳🥳");
 	mlx_string_put(s->mlx.mlx, s->mlx.mlx_win, 20, 20, k, "Press ESC to exit");
-	// key_hook(53, s);
 	s->counter.moves++;
 	ft_printf("total moves = %d\n", s->counter.moves);
-	exit(0);
+	free_and_destory(s);
 }
 
 void	map_dup(t_sl *s)
@@ -96,7 +95,7 @@ int	check_valid_path(int y, int x, char **str, t_sl *s)
 		s->counter.collectibles--;
 	if (str[y][x] == 'E')
 		s->counter.exit--;
-	if (str[y][x] == '1' || str[y][x] == 'X')
+	if (str[y][x] == '1' || str[y][x] == 'X' || str[y][x] == 'E')
 		return (1);
 	str[y][x] = 'X';
 	check_valid_path(y - 1, x, str, s);

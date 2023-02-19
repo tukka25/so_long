@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 20:02:59 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/18 15:46:17 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:27:07 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t			i;
-	size_t			c;
-	size_t			k;
+	int    			c;
+	int				k;
 	unsigned char	*ns1;
 	unsigned char	*ns2;
 

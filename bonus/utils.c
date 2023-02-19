@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:11:40 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/18 15:59:08 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:25:21 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	converting_xpm(t_sl *s)
 	s->img.img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/b2.xpm", &i, &i);
 	s->img.p_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/tt.xpm", &i, &i);
 	s->img.e_img = mlx_xpm_file_to_image(s->mlx.mlx,
-			"./photos/exit2.xpm", &i, &i);
+			"./photos/e80.xpm", &i, &i);
 	s->img.w_img = mlx_xpm_file_to_image(s->mlx.mlx,
 			"./photos/out.xpm", &i, &i);
 	s->img.c_img = mlx_xpm_file_to_image(s->mlx.mlx,
@@ -83,10 +83,9 @@ void	valid_path(t_sl *s)
 	int		i;
 	int		j;
 
-	i = 0;
+	// i = 0;
 	j = s->counter.collectibles;
 	map_dup(s);
-	ft_printf("\n\n");
 	i = 0;
 	i = check_valid_path(s->map.p_index_y, s->map.p_index_x, s->map.map_tmp, s);
 	if (!(s->counter.collectibles <= 0 && s->counter.exit <= 0))

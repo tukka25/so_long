@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:50:51 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/18 15:51:35 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:24:45 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	check_map(char *av[], t_sl *s)
 		ft_printf("map = %s\n", s->map.map[j]);
 		j++;
 	}
+	valid_path(s);
 }
 
 void	lines_counter(t_map *m, int fd)
@@ -50,7 +51,7 @@ void	lines_counter(t_map *m, int fd)
 	close(fd);
 	if (m->height == 0)
 	{
-		ft_printf("put map, loser!!");
+		ft_printf("put map, loser!!\n");
 		exit(1);
 	}
 }
@@ -77,11 +78,11 @@ void	insert_map(t_map *m, char *av[])
 
 void	count_wid(t_map *m)
 {
-	int		i;
+	// int		i;
 	int		j;
 
 	m->width = 0;
-	i = 0;
+	// i = 0;
 	j = 0;
 	while (m->map[0][j])
 	{
@@ -120,9 +121,9 @@ void	check_the_edges(t_map *m)
 
 void	map_handle(char *str, int fd)
 {
-	int		i;
+	// int		i;
 
-	i = 0;
+	// i = 0;
 	if (fd == -1)
 	{
 		ft_printf("Error\n");

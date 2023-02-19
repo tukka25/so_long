@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/18 16:05:37 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:08:44 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,5 @@ void		demons_count(t_sl *s);
 void		fill_array(t_sl *s);
 void		printing_conditions(t_sl *s, int k, int c);
 void		animation_conditions(t_sl *s, int k, int c);
-// void		check_leaks();
+void		map_conditions(t_counter *c, t_map *m, int i, int j);
 #endif

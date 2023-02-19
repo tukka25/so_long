@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:50:51 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/17 03:31:12 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:29:02 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	check_map(char *av[], t_sl *s)
 		ft_printf("map = %s\n", s->map.map[j]);
 		j++;
 	}
+	// exit(0);
 }
 
 void	lines_counter(t_map *m, int fd)
@@ -51,7 +52,7 @@ void	lines_counter(t_map *m, int fd)
 	close(fd);
 	if (m->height == 0)
 	{
-		ft_printf("put map, loser!!");
+		ft_printf("put map, loser!!\n");
 		exit(1);
 	}
 }

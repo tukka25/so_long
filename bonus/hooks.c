@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 21:23:37 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/17 04:43:33 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 14:59:20 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,38 @@
 
 int	key_hook(int keycode, t_sl *s)
 {
-	if (keycode == 123 || keycode == 124 || keycode == 125 || keycode == 126)
+	if (keycode == 123 || keycode == 124 || keycode == 125
+		|| keycode == 126 || keycode == 0 || keycode == 1
+		|| keycode == 2 || keycode == 13)
 	{
-		if (keycode == 124)
+		if (keycode == 124 || keycode == 2)
 			move_player(s);
-		else if (keycode == 123)
+		else if (keycode == 123 || keycode == 0)
 			move_back(s);
-		else if (keycode == 126)
+		else if (keycode == 126 || keycode == 13)
 			move_up(s);
-		else if (keycode == 125)
+		else if (keycode == 125 || keycode == 1)
 			move_down(s);
 	}
 	else if (keycode == 53)
-		exit(0);
-	// print_map(s, 0x00000000);
+		free_and_destory(s);
 	return (0);
 }
 
 void	move_player(t_sl *s)
 {
-	if (s->map.map[s->map.p_index_y][s->map.p_index_x] == 'P' && s->map.map[s->map.p_index_y][s->map.p_index_x + 1] != '1')
+	if (s->map.map[s->map.p_index_y][s->map.p_index_x] == 'P'
+	&& s->map.map[s->map.p_index_y][s->map.p_index_x + 1] != '1')
 	{
 		if (s->map.map[s->map.p_index_y][s->map.p_index_x + 1] == 'C')
 			s->counter.collectibles--;
-		if ((s->map.map[s->map.p_index_y][s->map.p_index_x + 1] == 'E' && s->counter.collectibles == 0) || s->map.map[s->map.p_index_y][s->map.p_index_x + 1] == 'D')
+		if ((s->map.map[s->map.p_index_y][s->map.p_index_x + 1] == 'E'
+			&& s->counter.collectibles == 0)
+			|| s->map.map[s->map.p_index_y][s->map.p_index_x + 1] == 'D')
 		{
 			if (s->map.map[s->map.p_index_y][s->map.p_index_x + 1] == 'D')
 			{
-				ft_printf("looooser, you will kill it next time");
+				ft_printf("looooser\n");
 				free_and_destory(s);
 			}
 			last_photo(s);
@@ -65,15 +69,18 @@ void	move_player(t_sl *s)
 
 void	move_back(t_sl *s)
 {
-	if (s->map.map[s->map.p_index_y][s->map.p_index_x] == 'P' && s->map.map[s->map.p_index_y][s->map.p_index_x - 1] != '1')
+	if (s->map.map[s->map.p_index_y][s->map.p_index_x] == 'P'
+	&& s->map.map[s->map.p_index_y][s->map.p_index_x - 1] != '1')
 	{
 		if (s->map.map[s->map.p_index_y][s->map.p_index_x - 1] == 'C')
 			s->counter.collectibles--;
-		if ((s->map.map[s->map.p_index_y][s->map.p_index_x - 1] == 'E' && s->counter.collectibles == 0) || s->map.map[s->map.p_index_y][s->map.p_index_x - 1] == 'D')
+		if ((s->map.map[s->map.p_index_y][s->map.p_index_x - 1] == 'E'
+			&& s->counter.collectibles == 0)
+		|| s->map.map[s->map.p_index_y][s->map.p_index_x - 1] == 'D')
 		{
 			if (s->map.map[s->map.p_index_y][s->map.p_index_x - 1] == 'D')
 			{
-				ft_printf("looooser, you will kill it next time");
+				ft_printf("looooser\n");
 				free_and_destory(s);
 			}
 			last_photo(s);
@@ -87,26 +94,26 @@ void	move_back(t_sl *s)
 			ft_printf("total moves = %d\n", s->counter.moves);
 			rot(s);
 		}
-		// return ;
 	}
 }
 
 void	move_up(t_sl *s)
 {
-	if (s->map.map[s->map.p_index_y][s->map.p_index_x] == 'P' && s->map.map[s->map.p_index_y - 1][s->map.p_index_x] != '1')
+	if (s->map.map[s->map.p_index_y][s->map.p_index_x] == 'P'
+	&& s->map.map[s->map.p_index_y - 1][s->map.p_index_x] != '1')
 	{
 		if (s->map.map[s->map.p_index_y - 1][s->map.p_index_x] == 'C')
 			s->counter.collectibles--;
-		if ((s->map.map[s->map.p_index_y - 1][s->map.p_index_x] == 'E' && s->counter.collectibles == 0) || s->map.map[s->map.p_index_y - 1][s->map.p_index_x] == 'D')
+		if ((s->map.map[s->map.p_index_y - 1][s->map.p_index_x] == 'E'
+		&& s->counter.collectibles == 0)
+		|| s->map.map[s->map.p_index_y - 1][s->map.p_index_x] == 'D')
 		{
 			if (s->map.map[s->map.p_index_y - 1][s->map.p_index_x] == 'D')
 			{
-				ft_printf("looooser, you will kill it next time");
+				ft_printf("looooser\n");
 				free_and_destory(s);
 			}
 			last_photo(s);
-			// sleep(2);
-			// exit(0);
 		}
 		if (s->map.map[s->map.p_index_y - 1][s->map.p_index_x] != 'E')
 		{
@@ -117,17 +124,19 @@ void	move_up(t_sl *s)
 			ft_printf("total moves = %d\n", s->counter.moves);
 			print_map(s);
 		}
-		// return ;
 	}
 }
 
 void	move_down(t_sl *s)
 {
-	if (s->map.map[s->map.p_index_y][s->map.p_index_x] == 'P' && s->map.map[s->map.p_index_y + 1][s->map.p_index_x] != '1')
+	if (s->map.map[s->map.p_index_y][s->map.p_index_x] == 'P'
+	&& s->map.map[s->map.p_index_y + 1][s->map.p_index_x] != '1')
 	{
 		if (s->map.map[s->map.p_index_y + 1][s->map.p_index_x] == 'C')
 			s->counter.collectibles--;
-		if ((s->map.map[s->map.p_index_y + 1][s->map.p_index_x] == 'E' && s->counter.collectibles == 0) || s->map.map[s->map.p_index_y + 1][s->map.p_index_x] == 'D')
+		if ((s->map.map[s->map.p_index_y + 1][s->map.p_index_x] == 'E'
+			&& s->counter.collectibles == 0)
+		|| s->map.map[s->map.p_index_y + 1][s->map.p_index_x] == 'D')
 		{
 			if (s->map.map[s->map.p_index_y + 1][s->map.p_index_x] == 'D')
 			{

@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:19:46 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/16 22:07:59 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:09:15 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	free_and_exit(t_map *m)
 {
 	free_strings(m->map);
-	ft_printf("put a valid map, loser!!");
+	ft_printf("put a valid map, loser!!\n");
 	exit(1);
 }
 
@@ -66,16 +66,7 @@ void	check_map_contents(t_map *m, t_counter *c)
 		m->j = 0;
 		while (m->map[m->i][m->j])
 		{
-			if (m->map[m->i][m->j] == 'P')
-				c->player++;
-			else if (m->map[m->i][m->j] == 'E')
-				c->exit++;
-			else if (m->map[m->i][m->j] == 'C')
-				c->collectibles++;
-			else if (m->map[m->i][m->j] == 'D')
-				c->demons++;
-			else if (!(m->map[m->i][m->j] == '1' || m->map[m->i][m->j] == '0'))
-				free_and_exit(m);
+			map_conditions(c, m, m->i, m->j);
 			m->j++;
 		}
 		m->i++;

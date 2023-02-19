@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:57:16 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/15 17:08:35 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:18:36 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	free_and_destory(t_sl *s)
 	mlx_destroy_image(s->mlx.mlx, s->img.w_img);
 	mlx_destroy_image(s->mlx.mlx, s->img.c_img);
 	mlx_destroy_image(s->mlx.mlx, s->img.p2_img);
-	mlx_destroy_image(s->mlx.mlx, s->img.d_img);
 	mlx_destroy_window(s->mlx.mlx, s->mlx.mlx_win);
 	exit(0);
 }

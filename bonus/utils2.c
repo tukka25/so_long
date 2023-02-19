@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 03:52:22 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/18 16:05:25 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/18 20:36:13 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	printing_moves(t_sl *s)
 	int		i;
 	char	*line;
 
-	i = 255;
+	i = 16711680;
 	print_layer(s);
 	line = "-------------------";
 	if (s->counter.st)
