@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 03:19:35 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/17 03:33:02 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 17:06:39 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ void	map_handle(char *str, int fd)
 		ft_printf("Error\n");
 		exit(1);
 	}
-	while (str[i] && str[i] != '.')
-		i++;
-	if ((str[i] == '.' && str[i + 1] == 'b'
-			&& str[i + 2] == 'e' && str[i + 3] == 'r' && str[i + 4] == '\0'))
+	if (ft_strncmp(str, ".ber", 4) == 0)
 		ft_printf("valid map name\n");
 	else
 	{

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 19:19:52 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 19:16:27 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "../libft/libft.h"
 # include <stdlib.h>
@@ -31,6 +31,7 @@ typedef struct s_map
 	int		p_index_y;
 	int		color;
 	char	**map_tmp;
+	int		*d_array;
 }	t_map;
 
 typedef struct s_mlx
@@ -70,6 +71,7 @@ typedef struct s_counter
 	char	*st;
 	int		enemy;
 	int		flag;
+	int		d_count;
 }	t_counter;
 
 typedef struct s_so_long
@@ -92,7 +94,7 @@ void		check_rectangular(t_map *m);
 void		check_map_contents(t_map *m, t_counter *c);
 void		valid_path(t_sl *s);
 void		put_background(t_sl *s);
-void		put_player(t_sl *s, char ch);
+void		put_player(t_sl *s);
 void		put_collectibles(t_sl *s, char ch);
 void		put_exit(t_sl *s, char ch);
 void		put_walls(t_sl *s, char ch);
@@ -111,14 +113,22 @@ void		put_player_r(t_sl *s, char ch);
 void		rot(t_sl *s);
 void		checker_behind(t_sl *s);
 void		check_behind2(t_sl *s);
+char		*strr_i(int totoal_moves);
 void		last_photo(t_sl *s);
-void		sleep_exit(void);
 int			enemy_key(t_sl *s);
 void		move_enemy(t_sl *s);
 void		move_enemy_back(t_sl *s);
-void		delay(void);
 int			free_and_destory(t_sl *s);
+void		animation(t_sl *s);
 void		map_dup(t_sl *s);
 int			check_valid_path(int x, int y, char **str, t_sl *s);
-void		drawing_conditions(t_sl *s, int k, int c);
+void		initialization(t_sl *s);
+void		printing_moves(t_sl *s);
+void		print_layer(t_sl *s);
+void		demons_count(t_sl *s);
+void		fill_array(t_sl *s);
+void		printing_conditions(t_sl *s, int k, int c);
+void		animation_conditions(t_sl *s, int k, int c);
+void		map_conditions(t_counter *c, t_map *m, int i, int j);
+void		check_if_exit(t_sl *s, int x, int y);
 #endif

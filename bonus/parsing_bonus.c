@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:50:51 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 15:52:22 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 18:57:57 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	check_map(char *av[], t_sl *s)
 {
@@ -32,12 +32,12 @@ void	check_map(char *av[], t_sl *s)
 	player_index(s);
 	ft_printf("player = %d ", s->map.p_index_y);
 	ft_printf("player = %d\n", s->map.p_index_x);
-	valid_path(s);
 	while (s->map.map[j])
 	{
 		ft_printf("map = %s\n", s->map.map[j]);
 		j++;
 	}
+	valid_path(s);
 }
 
 void	lines_counter(t_map *m, int fd)
@@ -78,11 +78,9 @@ void	insert_map(t_map *m, char *av[])
 
 void	count_wid(t_map *m)
 {
-	int		i;
 	int		j;
 
 	m->width = 0;
-	i = 0;
 	j = 0;
 	while (m->map[0][j])
 	{
