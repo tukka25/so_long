@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:11:40 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 17:56:05 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 21:35:24 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	converting_xpm(t_sl *s)
 	s->img.img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/bb.xpm", &i, &i);
 	s->img.p_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/tt.xpm", &i, &i);
 	s->img.e_img = mlx_xpm_file_to_image(s->mlx.mlx,
-			"./photos/black-hole-2.xpm", &i, &i);
+			"./photos/exit2.xpm", &i, &i);
 	s->img.w_img = mlx_xpm_file_to_image(s->mlx.mlx,
 			"./photos/out.xpm", &i, &i);
 	s->img.c_img = mlx_xpm_file_to_image(s->mlx.mlx,
@@ -85,12 +85,12 @@ void	valid_path(t_sl *s)
 	ft_printf("\n\n");
 	i = 0;
 	i = check_valid_path(s->map.p_index_y, s->map.p_index_x, s->map.map_tmp, s);
+	free_strings(s->map.map_tmp);
 	if (!(s->counter.collectibles <= 0 && s->counter.exit <= 0))
 	{
 		ft_printf("not valid");
 		free_and_exit(&s->map);
 	}
-	free_strings(s->map.map_tmp);
 	s->counter.collectibles = j;
 	ft_printf("c = %d\n", s->counter.collectibles);
 	s->counter.exit = 1;

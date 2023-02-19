@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 19:56:27 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 18:58:38 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 21:30:53 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	last_photo(t_sl *s)
 	s->map.j = 0;
 	s->counter.st = strr_i(s->counter.moves + 1);
 	s->counter.moves++;
-	ft_printf("You Won!!");
+	ft_printf("You Won!!\n");
 	ft_printf("total moves = %d\n", s->counter.moves);
 	free_and_destory(s);
 }

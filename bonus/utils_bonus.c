@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:11:40 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 18:58:19 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 21:36:21 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,21 @@ void	converting_xpm(t_sl *s)
 	int	i;
 
 	i = 64;
-	s->img.img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/b2.xpm", &i, &i);
-	s->img.p_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/tt.xpm", &i, &i);
+	s->img.img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/b.xpm", &i, &i);
+	s->img.p_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/p.xpm", &i, &i);
 	s->img.e_img = mlx_xpm_file_to_image(s->mlx.mlx,
-			"./photos/e80.xpm", &i, &i);
+			"./photos/e.xpm", &i, &i);
 	s->img.w_img = mlx_xpm_file_to_image(s->mlx.mlx,
-			"./photos/out.xpm", &i, &i);
+			"./photos/wall.xpm", &i, &i);
 	s->img.c_img = mlx_xpm_file_to_image(s->mlx.mlx,
 			"./photos/nez.xpm", &i, &i);
 	s->img.p2_img = mlx_xpm_file_to_image(s->mlx.mlx,
-			"./photos/tl.xpm", &i, &i);
+			"./photos/p2.xpm", &i, &i);
 	s->img.d_img = mlx_xpm_file_to_image(s->mlx.mlx,
-			"./photos/ee2.xpm", &i, &i);
+			"./photos/enemy.xpm", &i, &i);
 	s->img.c2_img = mlx_xpm_file_to_image(s->mlx.mlx,
 			"./photos/nezuku2.xpm", &i, &i);
-	s->img.l_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/l3.xpm", &i, &i);
+	s->img.l_img = mlx_xpm_file_to_image(s->mlx.mlx, "./photos/l.xpm", &i, &i);
 	if (s->img.img == NULL || s->img.p_img == NULL
 		|| s->img.e_img == NULL || s->img.w_img == NULL
 		|| s->img.c_img == NULL || s->img.p2_img == NULL
@@ -87,12 +87,12 @@ void	valid_path(t_sl *s)
 	map_dup(s);
 	i = 0;
 	i = check_valid_path(s->map.p_index_y, s->map.p_index_x, s->map.map_tmp, s);
+	free_strings(s->map.map_tmp);
 	if (!(s->counter.collectibles <= 0 && s->counter.exit <= 0))
 	{
 		ft_printf("not valid");
 		free_and_exit(&s->map);
 	}
-	free_strings(s->map.map_tmp);
 	s->counter.collectibles = j;
 	s->counter.exit = 1;
 }

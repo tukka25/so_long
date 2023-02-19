@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 19:56:27 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 17:57:53 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 20:55:04 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	last_photo(t_sl *s)
 
 	k = 16711680;
 	s->counter.moves++;
+	ft_printf("You Won !!\n");
 	ft_printf("total moves = %d\n", s->counter.moves);
 	free_and_destory(s);
 }

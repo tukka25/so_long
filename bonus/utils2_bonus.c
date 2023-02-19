@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 03:52:22 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 18:58:26 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 21:06:00 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	initialization(t_sl *s)
 	s->counter.moves = 0;
 	s->counter.flag = 0;
 	s->counter.enemy = 1;
-	s->mlx.background = "./photos/bb.xpm";
+	s->mlx.background = "./photos/b.xpm";
 	s->mlx.c_photo = "./photos/nez.xpm";
-	s->mlx.exit_photo = "./photos/exit2.xpm";
-	s->mlx.p_photo = "./photos/tt.xpm";
-	s->mlx.walls = "./photos/out.xpm";
+	s->mlx.exit_photo = "./photos/e.xpm";
+	s->mlx.p_photo = "./photos/p.xpm";
+	s->mlx.walls = "./photos/wall.xpm";
 }
 
 void	printing_moves(t_sl *s)

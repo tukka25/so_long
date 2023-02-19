@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:19:46 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 18:58:05 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/19 21:36:28 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	free_and_exit(t_map *m)
 {
 	free_strings(m->map);
-	free_strings(m->map_tmp);
 	ft_printf("put a valid map, loser!!\n");
 	exit(1);
 }
