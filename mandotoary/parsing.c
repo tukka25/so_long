@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:50:51 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 15:52:22 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:07:44 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	lines_counter(t_map *m, int fd)
 	while (m->map_count)
 	{
 		m->height++;
+		free(m->map_count);
 		m->map_count = get_next_line(fd);
 	}
 	close(fd);
