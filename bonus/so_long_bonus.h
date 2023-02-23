@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/20 13:22:06 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/23 14:55:25 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,4 +131,5 @@ void		printing_conditions(t_sl *s, int k, int c);
 void		animation_conditions(t_sl *s, int k, int c);
 void		map_conditions(t_counter *c, t_map *m, int i, int j);
 void		check_if_exit(t_sl *s, int x, int y);
+void		file_error(t_sl *s);
 #endif

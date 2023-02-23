@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 20:17:28 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 18:57:42 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/23 14:55:09 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,11 @@ void	map_handle(char *str, int fd)
 		ft_printf("Dont play with me, put a valid map name\n");
 		exit(1);
 	}
+}
+
+void	file_error(t_sl *s)
+{
+	free_strings(s->map.map);
+	mlx_destroy_window(s->mlx.mlx, s->mlx.mlx_win);
+	exit(1);
 }

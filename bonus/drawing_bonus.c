@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:11:00 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/20 13:21:58 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:01:56 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ void	put_background(t_sl *s)
 		k = 0;
 		while (s->map.map[s->map.i][s->map.j])
 		{
-			s->img.img = mlx_xpm_file_to_image(s->mlx.mlx, s->mlx.background,
-					&s->map.width, &s->map.height);
 			mlx_put_image_to_window(s->mlx.mlx, s->mlx.mlx_win,
 				s->img.img, k, c);
 			k = k + 64;

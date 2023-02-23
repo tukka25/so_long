@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:11:40 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/23 14:47:43 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/23 14:55:44 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,7 @@ void	converting_xpm(t_sl *s)
 		|| s->img.c_img == NULL || s->img.p2_img == NULL
 		|| s->img.d_img == NULL)
 	{
-		free_strings(s->map.map);
-		mlx_destroy_window(s->mlx.mlx, s->mlx.mlx_win);
-		exit(1);
+		file_error(s);
 	}
 }
 
