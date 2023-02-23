@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:19:46 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 21:35:16 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:21:07 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,10 @@ void	free_strings(char **str)
 void	check_rectangular(t_map *m)
 {
 	int		i;
-	int		k;
 	int		j;
 
 	i = 0;
 	j = 0;
-	k = 0;
 	while (m->map[i])
 	{
 		j = 0;

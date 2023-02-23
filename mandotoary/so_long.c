@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:07 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/20 13:07:25 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:18:34 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,16 @@ int	main(int ac, char *av[])
 
 void	print_map(t_sl *s)
 {
-	put_player(s, 'P');
+	put_player(s);
 }
 
 void	pp(t_sl *s)
 {
 	put_background(s);
-	put_player(s, 'P');
+	put_player(s);
 }
 
 void	rot(t_sl *s)
 {
-	put_player_r(s, 'P');
+	put_player_r(s);
 }

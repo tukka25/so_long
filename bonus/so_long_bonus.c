@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:07 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 19:15:46 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:22:21 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	pp(t_sl *s)
 
 void	rot(t_sl *s)
 {
-	put_player_r(s, 'P');
+	put_player_r(s);
 	printing_moves(s);
 }
 

@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:50:51 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/20 13:08:42 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:14:08 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,11 @@ void	check_map(char *av[], t_sl *s)
 	map_handle(av[1], fd);
 	lines_counter(&s->map, fd);
 	insert_map(&s->map, av);
-	ft_printf("height = %d\n", s->map.height);
 	count_wid(&s->map);
 	check_the_edges(&s->map);
 	check_rectangular(&s->map);
 	check_map_contents(&s->map, &s->counter);
 	player_index(s);
-	ft_printf("player = %d ", s->map.p_index_y);
-	ft_printf("player = %d\n", s->map.p_index_x);
-	while (s->map.map[j])
-	{
-		ft_printf("map = %s\n", s->map.map[j]);
-		j++;
-	}
 	valid_path(s);
 }
 

@@ -16,7 +16,7 @@ OBJS = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS = -g3 -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra 
 
 all:$(NAME)
 

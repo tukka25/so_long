@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:11:40 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 21:35:24 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/23 14:47:03 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,11 @@ void	converting_xpm(t_sl *s)
 	if (s->img.img == NULL || s->img.p_img == NULL || s->img.e_img == NULL
 		|| s->img.w_img == NULL || s->img.c_img == NULL
 		|| s->img.p2_img == NULL)
-		free_and_destory(s);
+	{
+		free_strings(s->map.map);
+		mlx_destroy_window(s->mlx.mlx, s->mlx.mlx_win);
+		exit(1);
+	}
 }
 
 void	valid_path(t_sl *s)
@@ -92,7 +96,6 @@ void	valid_path(t_sl *s)
 		free_and_exit(&s->map);
 	}
 	s->counter.collectibles = j;
-	ft_printf("c = %d\n", s->counter.collectibles);
 	s->counter.exit = 1;
 }
 

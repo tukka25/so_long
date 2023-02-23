@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:10:11 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 19:16:27 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:22:06 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void		move_down(t_sl *s);
 void		map_handle(char *str, int fd);
 void		put_player_move(t_sl *s, char ch);
 void		converting_xpm(t_sl *s);
-void		put_player_r(t_sl *s, char ch);
+void		put_player_r(t_sl *s);
 void		rot(t_sl *s);
 void		checker_behind(t_sl *s);
 void		check_behind2(t_sl *s);

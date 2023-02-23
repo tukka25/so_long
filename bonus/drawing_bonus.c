@@ -6,7 +6,7 @@
 /*   By: abdamoha <abdamoha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:11:00 by abdamoha          #+#    #+#             */
-/*   Updated: 2023/02/19 19:05:44 by abdamoha         ###   ########.fr       */
+/*   Updated: 2023/02/20 13:21:58 by abdamoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	put_player(t_sl *s)
 	}
 }
 
-void	put_player_r(t_sl *s, char ch)
+void	put_player_r(t_sl *s)
 {
 	int		k;
 	int		c;
@@ -73,7 +73,6 @@ void	put_player_r(t_sl *s, char ch)
 	c = 25;
 	s->map.i = 0;
 	s->map.j = 0;
-	ch = 0;
 	mlx_clear_window(s->mlx.mlx, s->mlx.mlx_win);
 	while (s->map.map[s->map.i])
 	{
